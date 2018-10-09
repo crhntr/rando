@@ -8,18 +8,26 @@ import (
 )
 
 var (
-	N int
+	N, S int
 )
 
 func init() {
 	rand.Seed(time.Now().UnixNano())
 
 	flag.IntVar(&N, "n", 3, "enter the number of chars pre section")
+	flag.IntVar(&S, "s", 3, "enter the number of sections")
 }
 
 func main() {
 	flag.Parse()
-	fmt.Printf("%s-%s-%s\n", randGen(N), randGen(N), randGen(N))
+
+	for i := 0; i < S; i++ {
+		fmt.Print(randGen(N))
+		if i < S-1 {
+			fmt.Print("-")
+		}
+	}
+	fmt.Println()
 }
 
 var letterRunes = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
