@@ -22,7 +22,7 @@ func main() {
 	fmt.Printf("%s-%s-%s\n", randGen(N), randGen(N), randGen(N))
 }
 
-var letterRunes = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345678901234567890123456789")
+var letterRunes = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
 
 func randGen(n int) string {
 	b := make([]rune, n)
