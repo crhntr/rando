@@ -1,34 +1,9 @@
-package main
+package rando
 
 import (
-	"flag"
-	"fmt"
 	"math/rand"
-	"time"
+	"strings"
 )
-
-var (
-	N, S int
-)
-
-func init() {
-	rand.Seed(time.Now().UnixNano())
-
-	flag.IntVar(&N, "n", 3, "enter the number of chars pre section")
-	flag.IntVar(&S, "s", 3, "enter the number of sections")
-}
-
-func main() {
-	flag.Parse()
-
-	for i := 0; i < S; i++ {
-		fmt.Print(randGen(N))
-		if i < S-1 {
-			fmt.Print("-")
-		}
-	}
-	fmt.Println()
-}
 
 var letterRunes = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
 
@@ -38,4 +13,16 @@ func randGen(n int) string {
 		b[i] = letterRunes[rand.Intn(len(letterRunes))]
 	}
 	return string(b)
+}
+
+// New creates a random string with letters and numbers
+func New(sectionLen, sectionsCount int) string {
+	var str strings.Builder
+	for i := 0; i < sectionsCount; i++ {
+		str.WriteString(randGen(sectionLen))
+		if i < sectionsCount-1 {
+			str.WriteString("-")
+		}
+	}
+	return str.String()
 }
