@@ -15,12 +15,12 @@ func randGen(n int) string {
 	return string(b)
 }
 
-// New creates a random string with letters and numbers
-func New(sectionLen, sectionsCount int) string {
+// New creates a random string built of sections separated by a '-'
+func New(length, number int) string {
 	var str strings.Builder
-	for i := 0; i < sectionsCount; i++ {
-		str.WriteString(randGen(sectionLen))
-		if i < sectionsCount-1 {
+	for i := 0; i < number; i++ {
+		str.WriteString(randGen(length))
+		if i < number-1 {
 			str.WriteString("-")
 		}
 	}

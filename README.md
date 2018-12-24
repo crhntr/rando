@@ -3,5 +3,5 @@
 A command line utility for creating passwords.
 
 ### Flags
-* -s : number of sections
-* -n : number of characters per section
+* -l : length of each sections (default 3)
+* -n : number of sections (default 3)

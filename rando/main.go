@@ -9,18 +9,18 @@ import (
 )
 
 var (
-	sectionLen, sectionsCount int
+	length, number int
 )
 
 func init() {
 	rand.Seed(time.Now().UnixNano())
 
-	flag.IntVar(&sectionLen, "sl", 3, "section-len is the number of chars pre section")
-	flag.IntVar(&sectionsCount, "sc", 3, "section-count is enter the number of sections")
+	flag.IntVar(&length, "l", 3, "length of each section")
+	flag.IntVar(&number, "n", 3, "number of sections")
 }
 
 func main() {
 	flag.Parse()
 
-	println(rando.New(sectionLen, sectionsCount))
+	println(rando.New(length, number))
 }
