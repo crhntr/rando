@@ -6,16 +6,12 @@ import (
 	"github.com/crhntr/rando"
 )
 
-var (
-	length, number int
-)
-
-func init() {
+func main() {
+	var (
+		length, number int
+	)
 	flag.IntVar(&length, "l", 3, "length of each section")
 	flag.IntVar(&number, "n", 3, "number of sections")
-}
-
-func main() {
 	flag.Parse()
 
 	println(rando.New(length, number))
